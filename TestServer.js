@@ -78,11 +78,7 @@ http.createServer(function(request, response) {
         }
 
         if(request.method === "POST" && urlObj.pathname === "/getColor"){
-            console.log("hello")
-            console.log("DATAOBJ: " + dataObj.link)
-
-            let colorName = "idk"
-            //console.log(dataObj.data)
+            let colorName = undefined
             fetch(dataObj.link, {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json',}
@@ -101,7 +97,7 @@ http.createServer(function(request, response) {
                 response.end(JSON.stringify(returnObj))
             })
             .catch(error => {
-                console.log("Error getting response: " + error)
+                console.log("Error From GET in Server For Color API: " + error)
             })
 
         }

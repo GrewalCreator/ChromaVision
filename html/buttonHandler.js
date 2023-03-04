@@ -1,4 +1,3 @@
-
 let VIDEO_CONSTRAINTS = {
     video: {
         width: {
@@ -16,8 +15,6 @@ let VIDEO_CONSTRAINTS = {
     },
 }
 
-console.log(VIDEO_CONSTRAINTS)
-
 let videoStream = undefined;
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
@@ -34,11 +31,8 @@ async function camera_button() {
                 displayVideo();
             })
 
-
-
         return PASS;
     }
-
 }
 
 async function displayVideo(){
