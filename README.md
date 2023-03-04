@@ -9,3 +9,4 @@ Hosted In Ottawa ON, Canada
 
 - Gurtej Grewal
 - Saad Sheikh
+- Manuel Lucas
