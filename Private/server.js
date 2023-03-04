@@ -65,7 +65,10 @@ http.createServer(function(request, response) {
             let filePath = undefined;
             if(urlObj.pathname.includes("/javascript")){
                 filePath = ROOT_DIR + urlObj.pathname;
-            }else{
+            }else if(urlObj.pathname.includes('/favicon.ico')){
+                filePath = ROOT_DIR + '/images'
+            }
+            else{
                 filePath = ROOT_DIR + '/html/' + urlObj.pathname
             }
             if (urlObj.pathname === '/') filePath = ROOT_DIR + '/html/index.html'
