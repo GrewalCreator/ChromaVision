@@ -1,6 +1,33 @@
+
 doctype html
 html
   head
+    script(type='text/javascript').
+      var form = document.getElementById("form");
+      //document.addEventListener("submit", handleSubmit)
+      document.querySelector('#file-upload').addEventListener('change', event => {handleSubmit(event)})
+        function handleSubmit(event) {
+        let uploadfiles = event.target.files;
+        console.dir(uploadfiles);
+        let formData = new FormData();
+        formData.append('File', uploadfiles[0]);//formData contains files from the submitted form
+        if (uploadfile && uploadfile !== "") {
+          fetch(`/uploads`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: formData,
+          })
+                  .then((response) => response.json())
+                  .then((responseObj) => {
+                    console.dir(responseObj)
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                  });
+        }
+      }
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
