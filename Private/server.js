@@ -1,3 +1,4 @@
+
 const http = require('http') //need to http
 const fs = require('fs') //need to read static files
 const url = require('url') //to parse url strings
@@ -66,7 +67,7 @@ http.createServer(function(request, response) {
             if(urlObj.pathname.includes("/javascript")){
                 filePath = ROOT_DIR + urlObj.pathname;
             }else if(urlObj.pathname.includes('/favicon.ico')){
-                filePath = ROOT_DIR + '/images'
+                filePath = ROOT_DIR + '/images' + urlObj.pathname
             }
             else{
                 filePath = ROOT_DIR + '/html/' + urlObj.pathname
