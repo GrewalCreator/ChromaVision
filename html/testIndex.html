@@ -7,17 +7,15 @@
 <body>
 
 <!--   =================== Gurtej's Test's ===================   -->
-<br>
 <div id = "img_input_prompt"></div>
+<br>
 <script>
-    const isMobile = navigator.userAgentData.mobile; //resolves true/false
-    console.log(isMobile)
     let imgDiv = document.getElementById('img_input_prompt')
-    if(isMobile){
-        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">`
+    if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
+        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br> <input type="button" id="switch_camera" value="Swap">`
     }
     else{
-        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br> <input type="button" id="switch_camera" value="Swap">`
+        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">`
     }
 </script>
 
