@@ -12,17 +12,16 @@
 <script>
     let imgDiv = document.getElementById('img_input_prompt')
     if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
-        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br> <input type="button" id="switch_camera" value="Swap">`
+        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br>`
     }
     else{
         imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">`
     }
 </script>
 
-<script src='buttonHandler.js'></script>
-<script src = 'eventHandler.js'></script>
-<script src = 'Constants.js'></script>
-
+<script src = '../javascript/Constants.js'></script>
+<script src = '../javascript/eventHandler.js'></script>
+<script src='../javascript/buttonHandler.js'></script>
 
 <!--   =================== Saad's Test's ===================   -->
 <label for="hexField"></label><input type = "text" id="hexField" name = "hexSearchBox" value="" size = "60" />
@@ -33,7 +32,7 @@
 
 <!--<script src = 'buttonHandler.js'></script>
 <script src = 'eventHandler.js'></script>-->
-<script src = 'thecolorapi.js'></script>
+<script src = '../javascript/thecolorapi.js'></script>
 
 
 </body>

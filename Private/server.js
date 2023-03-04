@@ -3,6 +3,7 @@ const fs = require('fs') //need to read static files
 const url = require('url') //to parse url strings
 
 
+
 const ROOT_DIR = 'html' //dir to serve static files from
 
 const MIME_TYPES = {
