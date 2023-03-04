@@ -6,8 +6,12 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var displayRouter = require('./routes/display')
 var app = express();
+const isMobile = (req) => {
+  const userAgent = req.headers['user-agent'];
+  return /Mobile/.test(userAgent);
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/uploads', displayRouter);
+app.get('/', (req, res) => {
+  res.render('index', { isMobile: isMobile(req) });
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
