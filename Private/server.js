@@ -62,7 +62,7 @@ http.createServer(function(request, response) {
 
         if (request.method === "GET") {
             let filePath = ROOT_DIR + urlObj.pathname
-            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/testIndex.html'
+            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/index.html'
 
             fs.readFile(filePath, function(err, data) {
                 if (err) {

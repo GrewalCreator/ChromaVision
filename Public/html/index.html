@@ -15,11 +15,10 @@
         imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br>`
     }
     else{
-        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">`
+        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "pictureReceived" accept="image/*" capture="user">`
     }
 </script>
 
-<script src = '../javascript/Constants.js'></script>
 <script src = '../javascript/eventHandler.js'></script>
 <script src='../javascript/buttonHandler.js'></script>
 
@@ -32,7 +31,7 @@
 
 <!--<script src = 'buttonHandler.js'></script>
 <script src = 'eventHandler.js'></script>-->
-<script src = '../javascript/thecolorapi.js'></script>
+<script src = '../javascript/colorAPI.js'></script>
 
 
 </body>
