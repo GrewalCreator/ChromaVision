@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
-
+<canvas id='image-manip'></canvas>
 <!--   =================== Gurtej's Test's ===================   -->
 <div id = "img_input_prompt"></div>
 <br>
@@ -16,13 +16,12 @@
         imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br>`
     }
     else{
-        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "pictureReceived" accept="image/*" capture="user">`
+        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "picture_received" accept="image/*" capture="user">`
     }
 </script>
 
 <script src = '../javascript/eventHandler.js'></script>
 <script src='../javascript/buttonHandler.js'></script>
-
 <!--   =================== Saad's Test's ===================   -->
 <label for="hexField"></label><input type = "text" id="hexField" name = "hexSearchBox" value="" size = "60" />
 <input type="button" id="get_using_hex" value="Get Colour From Hex Code">
