@@ -2,13 +2,20 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= "Chromavision"
   div
-    form#form(onsubmit="return false")
-      input#file-upload(type="file")
-      input#submit-button(type="submit")
+
+  div
+    label
+      form#form(method = "post" enctype= "multipart/form-data" onsubmit="return false")
+        input#file-upload(type="file" multiple)
+        input#submit-button(type="submit")
 
 
 script(src="../public/javascripts/eventlisteners.js")
 script(src="../public/javascripts/handlers.js")
+script(type='text/javascript').
+
+  document.querySelector('#fileUpload').addEventListener('change', event => {
+    handleImageUpload(event)
+  })
