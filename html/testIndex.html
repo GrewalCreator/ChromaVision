@@ -9,10 +9,12 @@
 <!--   =================== Gurtej's Test's ===================   -->
 <input type="button" id="activate_camera_button" value="Activate Camera">
 <br>
+<div id = "img_input_prompt"></div>
 <video autoplay id="camera_video"></video>
 <br>
-<input type="button" id="switch_camera" value="Swap">
-
+<!--<input type="button" id="switch_camera" value="Swap">-->
+<p>Take A Picture</p>
+<input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">
 
 <script src='buttonHandler.js'></script>
 <script src = 'eventHandler.js'></script>
