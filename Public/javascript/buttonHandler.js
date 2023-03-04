@@ -11,27 +11,24 @@ let VIDEO_CONSTRAINTS = {
             max: 720,
         },
 
-        facingMode: "environment" // or user
+        facingMode: "user"
     },
 }
 
 let videoStream = undefined;
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-
-
-
-        const videoStream = await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
+        await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
             .catch(function(error){
                 console.log("Error: " + error);
-                return ACCESS_DENIED;
+                return -1;
             })
             .then(function(){
                 console.log("Instead Do This")
                 displayVideo();
             })
 
-        return PASS;
+        return 0;
     }
 }
 
@@ -43,24 +40,6 @@ async function displayVideo(){
     video.srcObject = videoStream
 }
 
-// Does Not Remain On Environment
-async function swap_camera(){
-    videoStream.getTracks().forEach((track) => {
-        track.stop()
-    })
-
-    let currFace = VIDEO_CONSTRAINTS.video.facingMode;
-    if(currFace === "user"){
-        console.log("Switching To Rear . . .");
-        VIDEO_CONSTRAINTS.video.facingMode = "environment";
-        console.log(VIDEO_CONSTRAINTS.video.facingMode)
-    }else if(currFace === "environment"){
-        console.log("Switching To Front . . .");
-        VIDEO_CONSTRAINTS.video.facingMode = "user";
-    }
-
-    await displayVideo()
-}
 
 async function getPixelColor(event){
     /*console.log("x,y: " +  event.x + "," + event.y)
