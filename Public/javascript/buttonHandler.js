@@ -60,6 +60,29 @@ async function swap_camera(){
     }
 
     await displayVideo()
-
-
 }
+
+async function getPixelColor(event){
+    /*console.log("x,y: " +  event.x + "," + event.y)
+
+    let rasterImg = new Raster('test');
+
+    let canvas = document.getElementById("canvas")
+
+
+
+    rasterImg.position = view.center;
+
+    rasterImg.on('load', function(){
+        rasterImg.size = new Size(80, 60);
+    })
+
+    let color = rasterImg.getPixel(event.x, event.y);
+    rasterImg.getAverageColor();
+
+
+    console.log(color)*/
+}
+
+
+
