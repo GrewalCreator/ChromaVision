@@ -7,12 +7,17 @@
 <body>
 
 <!--   =================== Gurtej's Test's ===================   -->
-<input type="button" id="activate_camera_button" value="Activate Camera">
+<div id = "img_input_prompt"></div>
 <br>
-<video autoplay id="camera_video"></video>
-<br>
-<input type="button" id="switch_camera" value="Swap">
-
+<script>
+    let imgDiv = document.getElementById('img_input_prompt')
+    if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
+        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br> <input type="button" id="switch_camera" value="Swap">`
+    }
+    else{
+        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id="switch_camera" accept="image/*" capture="user" value="Swap">`
+    }
+</script>
 
 <script src='buttonHandler.js'></script>
 <script src = 'eventHandler.js'></script>
