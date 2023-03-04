@@ -54,8 +54,8 @@ http.createServer(function(request, response) {
             dataObj = JSON.parse(receivedData)
             console.log("received data object: ", dataObj)
             console.log("type: ", typeof dataObj)
-            console.log("USER REQUEST: " + dataObj.text)
-            returnObj.text = "NOT FOUND: " + dataObj.text
+            console.log("USER REQUEST: " + dataObj.link)
+            returnObj.text = "NOT FOUND: " + dataObj.link
         }
 
 
@@ -75,6 +75,35 @@ http.createServer(function(request, response) {
                 })
                 response.end(data)
             })
+        }
+
+        if(request.method === "POST" && urlObj.pathname === "/getColor"){
+            console.log("hello")
+            console.log("DATAOBJ: " + dataObj.link)
+
+            let colorName = "idk"
+            //console.log(dataObj.data)
+            fetch(dataObj.link, {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json',}
+
+            })
+            // Step 3: retrieve json object and turn it into a string
+            .then(response => response.json())
+            .then((res) => {
+                colorName = res.name.value.toString()
+                returnObj.text = colorName
+
+                response.writeHead(200, {
+                    "Content-Type": MIME_TYPES["json"]
+                })
+
+                response.end(JSON.stringify(returnObj))
+            })
+            .catch(error => {
+                console.log("Error getting response: " + error)
+            })
+
         }
     })
 }).listen(3000)

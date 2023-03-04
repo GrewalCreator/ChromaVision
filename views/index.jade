@@ -1,5 +1,14 @@
+
 extends layout
 
 block content
   h1= title
   p Welcome to #{title}
+  div
+    form#form(onsubmit="return false")
+      input#file-upload(type="file")
+      input#submit-button(type="submit")
+
+
+script(src="../public/javascripts/eventlisteners.js")
+script(src="../public/javascripts/handlers.js")
