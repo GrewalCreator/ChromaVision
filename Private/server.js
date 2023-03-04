@@ -4,7 +4,7 @@ const url = require('url') //to parse url strings
 
 
 
-const ROOT_DIR = './Public/'
+const ROOT_DIR = '../Public/'
 
 const MIME_TYPES = {
     'css': 'text/css',
