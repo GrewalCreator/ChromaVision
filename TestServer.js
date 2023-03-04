@@ -35,7 +35,6 @@ http.createServer(function(request, response) {
     console.log("REQUEST: " + ROOT_DIR + urlObj.pathname)
     console.log("METHOD: " + request.method)
 
-
     let receivedData = ''
 
     //attached event handlers to collect the message data
