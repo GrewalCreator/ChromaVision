@@ -8,3 +8,5 @@ Hosted In Ottawa ON, Canada
 # Contributors
 
 - Gurtej Grewal
+- Saad Sheikh
+- Manuel Lucas
