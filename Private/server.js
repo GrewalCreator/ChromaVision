@@ -4,7 +4,7 @@ const url = require('url') //to parse url strings
 
 
 
-const ROOT_DIR = 'html' //dir to serve static files from
+const ROOT_DIR = './Public/'
 
 const MIME_TYPES = {
     'css': 'text/css',
@@ -61,8 +61,14 @@ http.createServer(function(request, response) {
 
 
         if (request.method === "GET") {
-            let filePath = ROOT_DIR + urlObj.pathname
-            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/index.html'
+            console.log("PATH NAME 1: " + urlObj.pathname)
+            let filePath = undefined;
+            if(urlObj.pathname.includes("/javascript")){
+                filePath = ROOT_DIR + urlObj.pathname;
+            }else{
+                filePath = ROOT_DIR + '/html/' + urlObj.pathname
+            }
+            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/html/index.html'
 
             fs.readFile(filePath, function(err, data) {
                 if (err) {
@@ -82,7 +88,7 @@ http.createServer(function(request, response) {
             let colorName = undefined
             fetch(dataObj.link, {
                 method: 'GET',
-                headers: {'Content-Type': 'application/json',}
+                headers: {'Content-Type': 'json',}
 
             })
             // Step 3: retrieve json object and turn it into a string
@@ -107,4 +113,4 @@ http.createServer(function(request, response) {
 
 console.log('Server Running at http://127.0.0.1:3000  CNTL-C to quit')
 console.log('To Test')
-console.log('http://localhost:3000/testIndex.html')
+console.log('http://localhost:3000/index.html')
