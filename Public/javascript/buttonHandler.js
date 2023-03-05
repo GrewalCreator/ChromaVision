@@ -23,7 +23,11 @@ const canvas = document.querySelector("#canvas");
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
-            .catch(function (error) {
+            .catch(DOMException => {
+                console.log("ERROR: " + DOMException);
+                alert("Browser May Not Support Camera API")
+                return -1;
+            }).catch(function (error) {
                 console.log("Error: " + error);
                 alert("Camera API Is Not Available")
                 return -1;
@@ -44,11 +48,11 @@ function screenshot(){
     video.pause();
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    var rect = canvas.getBoundingClientRect();
+
     canvas.getContext("2d").drawImage(video, 0, 0);
     img.src = canvas.toDataURL("image/png")
-    console.log(rect.top, rect.right, rect.bottom, rect.left);
-    canvas.getContext()
+
+
     video.play()
 }
 
@@ -66,11 +70,12 @@ async function reset(){
 
 
 async function getPixelColor(event) {
+    let rect = canvas.getBoundingClientRect();
     const TOLERANCE = 1;
     if(img.src !== ''){
         let context = canvas.getContext("2d");
         let X = event.x - Math.floor(TOLERANCE/2);
-        let Y = event.y - Math.floor(TOLERANCE/2);
+        let Y = event.y - rect.top - Math.floor(TOLERANCE/2);
 
         let RGB_arr = []
 
@@ -83,12 +88,11 @@ async function getPixelColor(event) {
                 ++X;
             }
         }
-        var rezzy = [];
-        rezzy = await getAverageRGB(RGB_arr);
-        console.log("rezzy: " + rezzy);
-        console.log("rezzy[0]" + rezzy[0]);
+        let averageRGB;
+        averageRGB = await getAverageRGB(RGB_arr);
 
-        console.log(getColorNameFromHex((rezzy[0].toString(16)) + (rezzy[1].toString(16)) + (rezzy[2].toString(16))));
+
+        console.log(getColorNameFromHex((averageRGB[0].toString(16)) + (averageRGB[1].toString(16)) + (averageRGB[2].toString(16))));
 
     }
 
