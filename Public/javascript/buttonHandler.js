@@ -44,7 +44,7 @@ async function handleVideo(){
     let image = canvas.toDataURL('image/jpeg')
     console.log('handlevideo called, image is ', image)
 }
-function screenshot(){
+function screenshot() {
     console.log("real")
     let canvas = document.getElementById('image-manip');
     let context = canvas.getContext('2d');
