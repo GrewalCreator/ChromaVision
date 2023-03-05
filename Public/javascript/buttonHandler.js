@@ -39,6 +39,7 @@ async function camera_button() {
     }
 }
 
+
 function screenshot(){
     video.pause();
     canvas.width = video.videoWidth;
@@ -62,6 +63,7 @@ async function displayVideo(){
 async function reset(){
     location.reload()
 }
+
 
 async function getPixelColor(event) {
     const TOLERANCE = 1;
