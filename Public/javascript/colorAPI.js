@@ -34,8 +34,8 @@ async function getAverageRGB(RGB_arr){
             rgb[i] += RGB_arr[j].data[i]
         }
         rgb[i] = Math.floor(rgb[i] / RGB_arr.length);
-        console.log(rgb[i])
     }
+    console.log(rgb)
 
-    return rgb[0]
+    return rgb
 }
