@@ -15,16 +15,21 @@ let VIDEO_CONSTRAINTS = {
     },
 }
 
+const video = document.querySelector('#camera_video');
 let videoStream = undefined;
+const img = document.createElement("img");
+const canvas = document.querySelector("#canvas");
+
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
-            .catch(function(error){
+            .catch(function (error) {
                 console.log("Error: " + error);
                 alert("Camera API Is Not Available")
+                document.getElementById("activate_camera_button").remove()
                 return -1;
             })
-            .then(function(){
+            .then(function () {
                 console.log("Instead Do This")
                 displayVideo();
             })
@@ -33,44 +38,18 @@ async function camera_button() {
     }
 }
 
-async function handleVideo(){
-    let canvas = document.getElementById('image-manip');
-    let context = canvas.getContext('2d');
-    let video = document.querySelector('video')
-    canvas.width = video.width
-    canvas.height = video.height
-    console.dir(video)
-    console.log(canvas.width, " ", canvas.height)
-    context.drawImage(video,0,0,canvas.width, canvas.height)
-    let image = canvas.toDataURL('image/jpeg')
-    console.log('handlevideo called, image is ', image)
+function screenshot(){
+    video.pause();
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext("2d").drawImage(video, 0, 0);
+    img.src = canvas.toDataURL("image/png");
+    document.getElementById('activate_camera_button').remove();
+    document.getElementById('camera_video').remove();
+    document.getElementById('screenshot').remove();
+
 }
-function screenshot() {
-    console.log("real")
-    let canvas = document.getElementById('image-manip');
-    let context = canvas.getContext('2d');
-    let video = document.querySelector("video")
-    canvas.width = video.videoWidth
-    canvas.height = video.videoHeight
-    context
-        .drawImage(video,0,0,video.width,video.height)
-}
- async function handlePicture(e){
-    imgDiv.innerHTML += "handler function did its job"
-    let canvas = document.getElementById('image-manip');
-    let context = canvas.getContext('2d');
-    var filereader = new FileReader();
-    filereader.onload = function(event){
-        var img = new Image();
-        img.onload = function (){
-            canvas.width = img.width;
-            canvas.height = img.height;
-            context.drawImage(img,0,0);
-        }
-        img.src = event.target.result;
-    }
-    filereader.readAsDataURL(e.target.files[0]);
- }
+
 async function displayVideo(){
     const video = document.querySelector('#camera_video')
 
@@ -79,28 +58,36 @@ async function displayVideo(){
     video.srcObject = videoStream
 }
 
-
-async function getPixelColor(event){
-    /*console.log("x,y: " +  event.x + "," + event.y)
-
-    let rasterImg = new Raster('test');
-
-    let canvas = document.getElementById("canvas")
-
-
-
-    rasterImg.position = view.center;
-
-    rasterImg.on('load', function(){
-        rasterImg.size = new Size(80, 60);
-    })
-
-    let color = rasterImg.getPixel(event.x, event.y);
-    rasterImg.getAverageColor();
-
-
-    console.log(color)*/
+async function reset(){
+    location.reload()
 }
 
+async function getPixelColor(event) {
+    const TOLERANCE = 5;
+    if(img.src !== ''){
+        let context = canvas.getContext("2d");
+        let X = event.x - Math.floor(TOLERANCE/2);
+        let Y = event.y - Math.floor(TOLERANCE/2);
+
+        let RGB_arr = []
+
+        for(let i = 0; i < TOLERANCE; ++i){
+            ++Y;
+            X = X - (TOLERANCE - 1);
+            for(let j = 0; j < TOLERANCE; ++j){
+                let RGB = context.getImageData(X, Y, 1, 1);
+                RGB_arr.push(RGB)
+                ++X;
+            }
+        }
+        /* let rezzy = getAverageRGB(RGB_arr)
+         fetch(rezzy.toString())
+             .then(response => response.json())
+             .then(data => console.log(data.))
+         console.log(rezzy)*/
+
+    }
+
+}
 
 

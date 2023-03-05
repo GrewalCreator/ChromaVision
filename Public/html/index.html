@@ -10,8 +10,11 @@
 
 
 <!--   =================== Gurtej's Test's ===================   -->
-<div id = "img_input_prompt"></div>
+
 <br>
+
+<div id = "img_input_prompt"></div>
+
 <script>
     let imgDiv = document.getElementById('img_input_prompt')
     if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
@@ -21,6 +24,8 @@
         imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "picture_received" accept="image/*" capture="user">`
     }
 </script>
+
+
 <canvas id='canvas'></canvas>
 
 <input type = "button" id = "screenshot" value = "ScreenShot">
@@ -28,11 +33,10 @@
 
 
 <script src = '../javascript/eventHandler.js'></script>
-<script src='../javascript/tempButtonHandler.js'></script>
+<script src='../javascript/buttonHandler.js'></script>
 <!--   =================== Saad's Test's ===================   -->
-<label for="hexField"></label><input type = "text" id="hexField" name = "hexSearchBox" value="" size = "60" />
-<input type="button" id="get_using_hex" value="Get Colour From Hex Code">
-<div id="outputColour"></div>
+
+
 <script src = '../javascript/colorAPI.js'></script>
 
 
