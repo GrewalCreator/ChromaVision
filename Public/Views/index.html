@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Testing Camera</title>
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
 
@@ -18,18 +19,27 @@
 <script>
     let imgDiv = document.getElementById('img_input_prompt')
     if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
-        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br>`
+        imgDiv.innerHTML = ` <video autoplay id="camera_video"></video> <br>`
     }
     else{
-        imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "picture_received" accept="image/*" capture="user">`
+        imgDiv.innerHTML = `<p>Take A Picture</p> `
     }
 </script>
 
 
 <canvas id='canvas'></canvas>
 
-<input type = "button" id = "screenshot" value = "ScreenShot">
-<input type = "button" id = "reset" value = "Reset">
+<video autoplay id="camera_video"></video>
+
+<div id = "nav">
+    <a> <input type="button" id="activate_camera_button" value="Activate Camera"> </a>
+    <a> <input type = "button" id = "screenshot" value = "ScreenShot"> </a>
+    <a> <input type = "button" id = "reset" value = "Reset"> </a>
+    <a> <input type="file" id = "picture_received" accept="image/*" capture="user"> </a>
+</div>
+
+
+
 
 
 <script src = '../javascript/eventHandler.js'></script>

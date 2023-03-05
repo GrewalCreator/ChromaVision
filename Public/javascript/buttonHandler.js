@@ -34,6 +34,8 @@ async function camera_button() {
                 displayVideo();
             })
 
+        document.getElementById("activate_camera_button").remove();
+
         return 0;
     }
 }

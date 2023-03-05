@@ -62,17 +62,16 @@ http.createServer(function(request, response) {
 
 
         if (request.method === "GET") {
-            console.log("PATH NAME 1: " + urlObj.pathname)
             let filePath = undefined;
             if(urlObj.pathname.includes("/javascript")){
                 filePath = ROOT_DIR + urlObj.pathname;
-            }else if(urlObj.pathname.includes('/favicon.ico')){
+            }else if(urlObj.pathname.includes('ico' || '.jpg' || '.png')){
                 filePath = ROOT_DIR + '/images' + urlObj.pathname
             }
             else{
-                filePath = ROOT_DIR + '/html/' + urlObj.pathname
+                filePath = ROOT_DIR + '/Views/' + urlObj.pathname
             }
-            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/html/index.html'
+            if (urlObj.pathname === '/') filePath = ROOT_DIR + '/Views/index.html'
 
             fs.readFile(filePath, function(err, data) {
                 if (err) {
@@ -89,7 +88,7 @@ http.createServer(function(request, response) {
         }
 
         if(request.method === "POST" && urlObj.pathname === "/getColor"){
-            let colorName = undefined
+
             fetch(dataObj.link, {
                 method: 'GET',
                 headers: {'Content-Type': 'json',}
@@ -98,7 +97,7 @@ http.createServer(function(request, response) {
             // Step 3: retrieve json object and turn it into a string
             .then(response => response.json())
             .then((res) => {
-                //colorName = res.name.value.toString()
+
                 returnObj.text = res.name.value.toString();
                 returnObj.RGB = res.RGB;
 
