@@ -98,8 +98,9 @@ http.createServer(function(request, response) {
             // Step 3: retrieve json object and turn it into a string
             .then(response => response.json())
             .then((res) => {
-                colorName = res.name.value.toString()
-                returnObj.text = colorName
+                //colorName = res.name.value.toString()
+                returnObj.text = res.name.value.toString();
+                returnObj.RGB = res.RGB;
 
                 response.writeHead(200, {
                     "Content-Type": MIME_TYPES["json"]
