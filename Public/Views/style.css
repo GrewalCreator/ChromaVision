@@ -109,17 +109,30 @@ li{
     outline: lime 5px;
 }
 
-input[type=button], li{
+input[type=button], li, input[type=file]{
     list-style: none;
     outline: lime 4px;
     border: none;
     background: none;
     float: left;
-    color: blue
+    color: black
 }
 
 #canvas{
+    width: 35%;
+    height: 60%;
+    outline: lime auto 5px;
     border: black 9px;
+}
+
+.options{
+    font-size: 25px;
+    font-family: "Arial Black", monospace;
+    padding: 50px;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 250px;
+
 }
 
 @media only screen and (max-device-width: 700px){
@@ -148,12 +161,9 @@ input[type=button], li{
     .menu a{
         display: block;
         border-bottom: 1px solid #EAEAEB;
-
         color: black;
         padding: 16px;
         text-decoration: none;
-
-
     }
 
     .intro{
