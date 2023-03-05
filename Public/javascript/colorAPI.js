@@ -17,7 +17,7 @@ async function getColorNameFromHex(hexVal){
         .then((response) => response.json())
         .then((data) => {
             textDiv.innerHTML = `<p id = "retrievedInfo">Color Name: ${data.text}<\p>`;
-
+            textToSpeech(data.text);
         })
         .catch((error) => {
             console.log("ERROR FETCH CLIENT-SIDE: " + error)
