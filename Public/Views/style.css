@@ -1,16 +1,102 @@
 
+/*Menu CSS*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
-    outline-color: lime;
-    outline-width: 3px;
-}
-#picture_received{
-    display: none;
+    box-sizing: border-box;
 }
 
+html{scroll-behavior: smooth;}
+
 body{
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
     background-image: url("images/Bright-WallPaper.jpg");
+}
+
+.title{
+    margin-top: 5%;
+    text-align-last: center;
+    font-size: 3em;
+}
+
+
+.LinkedInLogo{
+    width: 15%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+#toggle{display: none;}
+
+.menu{margin: 0 30px 0 0;}
+
+
+.nav{
+    border-bottom: 1px solid rgba(17, 14, 17, 0.667);
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+}
+
+a{
+    transition: ease 0.3s;
+    text-decoration: none;
+    padding: 10px 2%;
+}
+
+a:hover{
+    color:black;
+    font-size: 120%;
+}
+
+label{
+    margin: 0 40px 0 0;
+    font-size: 26px;
+    line-height: 30px;
+    display: none;
+    width: 26px;
+    position: relative;
+    left: -10px;
+    top: 25%;
+    float: right;
+    transition: all .5s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(110deg, rgba(253, 205, 59, 0.7) 60%, rgba(255, 237, 75, 0.7) 60%);
+}
+
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background: linear-gradient(110deg, rgba(253, 205, 59, 1) 60%, rgba(255, 237, 75, 1) 60%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-family: "Montserrat", sans-serif;
+}
+
+.logo{
+    cursor: pointer;
+    width: 75px;
+    height: auto;
+    float: left;
+    margin-left: 2%;
+    margin-top: 0.5%;
+
+}
+
+
+
+/*Project CSS*/
+
+#picture_received{
+    display: none;
 }
 
 input[type=button], li{
@@ -32,22 +118,11 @@ input[type=button], li{
     color: blue
 }
 
-#logo{
-
-    position: absolute;
-
+#canvas{
+    border: black 9px;
 }
 
-.Title{
-    margin-left: 30%;
-    font-size: 200%;
-    font-family: bold, "Segoe UI Black", serif;
-    position: relative;
-}
-
-
-
-@media only screen and (max-width: 800px){
+@media only screen and (max-device-width: 700px){
     label{
         display: block;
         cursor: pointer;
@@ -62,6 +137,40 @@ input[type=button], li{
     #picture_received{
         display: flex;
         font-size: large;
+    }
+
+    .menu{
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+    .menu a{
+        display: block;
+        border-bottom: 1px solid #EAEAEB;
+
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+
+
+    }
+
+    .intro{
+        margin-top: 80px;
+    }
+
+    #toggle:checked + .menu{
+        display:block;
+
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        z-index: 1;
     }
 
 }
