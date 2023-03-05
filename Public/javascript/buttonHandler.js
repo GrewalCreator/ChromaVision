@@ -35,7 +35,7 @@ async function camera_button() {
 async function handleVideo(){
     let canvas = document.getElementById('image-manip');
     let context = canvas.getContext('2d');
-    let video = document.getElementById('camera_video')
+    let video = document.querySelector('video')
     canvas.width = video.width
     canvas.height = video.height
     console.dir(video)
@@ -43,6 +43,16 @@ async function handleVideo(){
     context.drawImage(video,0,0,canvas.width, canvas.height)
     let image = canvas.toDataURL('image/jpeg')
     console.log('handlevideo called, image is ', image)
+}
+function screenshot(){
+    console.log("real")
+    let canvas = document.getElementById('image-manip');
+    let context = canvas.getContext('2d');
+    let video = document.querySelector("video")
+    canvas.width = video.videoWidth
+    canvas.height = video.videoHeight
+    context
+        .drawImage(video,0,0,video.width,video.height)
 }
  async function handlePicture(e){
     let canvas = document.getElementById('image-manip');

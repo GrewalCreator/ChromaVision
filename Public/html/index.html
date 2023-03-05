@@ -13,7 +13,7 @@
 <script>
     let imgDiv = document.getElementById('img_input_prompt')
     if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
-        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <video autoplay id="camera_video"></video> <br>`
+        imgDiv.innerHTML = `<input type="button" id="activate_camera_button" value="Activate Camera"> <button id="screenshot" >get image</button> <video autoplay id="camera_video"></video> <br>`
     }
     else{
         imgDiv.innerHTML = `<p>Take A Picture</p> <input type="file" id = "picture_received" accept="image/*" capture="user">`
