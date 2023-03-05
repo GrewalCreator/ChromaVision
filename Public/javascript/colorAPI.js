@@ -3,12 +3,12 @@ async function getColorNameFromHex(hexVal){
     const API_LINK = "https://www.thecolorapi.com/id?hex="
     // Format hex code to fit into url to obtain from the color api
     let site_link = API_LINK.concat(hexVal)
-    let colourOutput = undefined
 
     let hexLink = {
         link: site_link
     }
 
+    let textDiv = document.getElementById('color_name');
     fetch("/getColor", {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
@@ -16,14 +16,15 @@ async function getColorNameFromHex(hexVal){
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Color Name: " + data.text)
-            colourOutput = data.text
+            textDiv.innerHTML = `<p id = "retrievedInfo">Color Name: ${data.text}<\p>`;
+
         })
         .catch((error) => {
             console.log("ERROR FETCH CLIENT-SIDE: " + error)
         })
 
-    return colourOutput;
+
+
 }
 
 async function getAverageRGB(RGB_arr){

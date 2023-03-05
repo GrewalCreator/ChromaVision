@@ -111,28 +111,37 @@ li{
 
 input[type=button], li, input[type=file]{
     list-style: none;
-    outline: lime 4px;
     border: none;
     background: none;
     float: left;
-    color: black
+    color: white;
 }
 
-#canvas{
+#canvas, #camera_video{
     width: 35%;
     height: 60%;
-    outline: lime auto 5px;
-    border: black 9px;
+    outline: lime auto 3px;
 }
 
 .options{
     font-size: 25px;
     font-family: "Arial Black", monospace;
-    padding: 50px;
+    padding: 10px;
     margin-left: 40%;
     margin-right: 40%;
-    margin-top: 250px;
+    margin-top: 5px;
+}
 
+.options:hover{
+    background-color: yellow;
+    color: black;
+}
+
+#color_info, #color_name{
+    font-family: bold, sans-serif;
+    float: right;
+    margin-right: 100px;
+    margin-top: 10px;
 }
 
 @media only screen and (max-device-width: 700px){
