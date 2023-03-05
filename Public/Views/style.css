@@ -17,6 +17,12 @@ body{
     background-image: url("images/Bright-WallPaper.jpg");
 }
 
+.ChromaVision{
+    font-family: bold, "Montserrat", sans-serif;
+    font-size: larger;
+    font-weight: 700;
+}
+
 .title{
     margin-top: 5%;
     text-align-last: center;
