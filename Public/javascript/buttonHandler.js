@@ -21,6 +21,7 @@ async function camera_button() {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
             .catch(function(error){
                 console.log("Error: " + error);
+                alert("Camera API Is Not Available")
                 return -1;
             })
             .then(function(){
@@ -44,7 +45,7 @@ async function handleVideo(){
     let image = canvas.toDataURL('image/jpeg')
     console.log('handlevideo called, image is ', image)
 }
-function screenshot(){
+function screenshot() {
     console.log("real")
     let canvas = document.getElementById('image-manip');
     let context = canvas.getContext('2d');
@@ -55,6 +56,7 @@ function screenshot(){
         .drawImage(video,0,0,video.width,video.height)
 }
  async function handlePicture(e){
+    imgDiv.innerHTML += "handler function did its job"
     let canvas = document.getElementById('image-manip');
     let context = canvas.getContext('2d');
     var filereader = new FileReader();
