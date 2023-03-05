@@ -65,7 +65,7 @@ async function reset(){
 }
 
 async function getPixelColor(event) {
-    const TOLERANCE = 5;
+    const TOLERANCE = 1;
     if(img.src !== ''){
         let context = canvas.getContext("2d");
         let X = event.x - Math.floor(TOLERANCE/2);
@@ -82,11 +82,12 @@ async function getPixelColor(event) {
                 ++X;
             }
         }
-        /* let rezzy = getAverageRGB(RGB_arr)
-         fetch(rezzy.toString())
-             .then(response => response.json())
-             .then(data => console.log(data.))
-         console.log(rezzy)*/
+        var rezzy = [];
+        rezzy = await getAverageRGB(RGB_arr);
+        console.log("rezzy: " + rezzy);
+        console.log("rezzy[0]" + rezzy[0]);
+
+        console.log(getColorNameFromHex((rezzy[0].toString(16)) + (rezzy[1].toString(16)) + (rezzy[2].toString(16))));
 
     }
 
