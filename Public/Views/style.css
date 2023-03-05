@@ -61,6 +61,7 @@ img{
     }
     #picture_received{
         display: flex;
+        font-size: large;
     }
 
 }
