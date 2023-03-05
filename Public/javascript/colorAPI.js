@@ -1,6 +1,5 @@
 
 async function getColorNameFromHex(hexVal){
-
     const API_LINK = "https://www.thecolorapi.com/id?hex="
     // Format hex code to fit into url to obtain from the color api
     let site_link = API_LINK.concat(hexVal)
