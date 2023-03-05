@@ -21,6 +21,7 @@ async function camera_button() {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
             .catch(function(error){
                 console.log("Error: " + error);
+                alert("Camera API Is Not Available")
                 return -1;
             })
             .then(function(){
