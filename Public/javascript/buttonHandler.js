@@ -74,9 +74,11 @@ async function getPixelColor(event) {
     const TOLERANCE = 1;
     if(img.src !== ''){
         let context = canvas.getContext("2d");
-        let X = event.x - Math.floor(TOLERANCE/2);
+        let X = event.x - Math.floor(TOLERANCE/2) - rect.left;
         let Y = event.y - rect.top - Math.floor(TOLERANCE/2);
-
+        console.log(`cursor at ${event.x}, ${event.y}`)
+        console.log(`calculation accounting for offset: ${event.x-rect.left}, ${event.y-rect.top}`)
+        console.log(`Rect's dimensions are x: ${rect.right - rect.left}, y: ${rect.bottom-rect.top}`)
         let RGB_arr = [];
 
         for(let i = 0; i < TOLERANCE; ++i){
@@ -101,6 +103,7 @@ async function getPixelColor(event) {
         textDiv.innerHTML = '';
         textDiv.innerHTML += `<p id = "retrievedInfo">HexValue: ${hexValue}<\p>`;
         textDiv.innerHTML += `<p id = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
+        textDiv.innerHTML += `<div id="outputcolor" style="background-color: rgb(${averageRGB}); width: 30px; height: 30px;"></div>`;
 
 
 
