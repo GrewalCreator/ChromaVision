@@ -77,7 +77,7 @@ async function getPixelColor(event) {
         let X = event.x - Math.floor(TOLERANCE/2);
         let Y = event.y - rect.top - Math.floor(TOLERANCE/2);
 
-        let RGB_arr = []
+        let RGB_arr = [];
 
         for(let i = 0; i < TOLERANCE; ++i){
             ++Y;
@@ -92,7 +92,17 @@ async function getPixelColor(event) {
         averageRGB = await getAverageRGB(RGB_arr);
 
 
-        console.log(getColorNameFromHex((averageRGB[0].toString(16)) + (averageRGB[1].toString(16)) + (averageRGB[2].toString(16))));
+        let hexValue = ((averageRGB[0].toString(16)) + (averageRGB[1].toString(16)) + (averageRGB[2].toString(16)));
+        await getColorNameFromHex(hexValue);
+
+
+
+        let textDiv = document.getElementById("color_info");
+        textDiv.innerHTML = '';
+        textDiv.innerHTML += `<p id = "retrievedInfo">HexValue: ${hexValue}<\p>`;
+        textDiv.innerHTML += `<p id = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
+
+
 
     }
 
