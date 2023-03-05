@@ -24,11 +24,20 @@ body{
 }
 
 
-.LinkedInLogo{
-    width: 15%;
-    margin-top: 5%;
-    margin-left: 5%;
+.contact{
+    font-family: "Bookman Old Style", monospace;
+    font-size: xxx-large;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-right: 300px;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.5);
 }
+
+.about{
+    margin-left: 75px;
+}
+
 
 #toggle{display: none;}
 
@@ -83,11 +92,11 @@ button {
 
 .logo{
     cursor: pointer;
-    width: 75px;
+    width: 70px;
     height: auto;
     float: left;
     margin-left: 2%;
-    margin-top: 0.5%;
+
 
 }
 
@@ -117,11 +126,6 @@ input[type=button], li, input[type=file]{
     color: white;
 }
 
-/*#canvas, #camera_video{
-    width: 35%;
-    height: 60%;
-    outline: lime auto 3px;
-}*/
 
 .options{
     font-size: 25px;
@@ -142,6 +146,12 @@ input[type=button], li, input[type=file]{
     float: right;
     margin-right: 100px;
     margin-top: 10px;
+}
+
+.about{
+    padding: 1px;
+    margin-right: 180px;
+    background-color: rgba(255,255,255,0.5);
 }
 
 @media only screen and (max-device-width: 700px){
@@ -191,7 +201,6 @@ input[type=button], li, input[type=file]{
         overflow: auto;
         z-index: 1;
     }
-
 }
 
 
