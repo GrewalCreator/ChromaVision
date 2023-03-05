@@ -11,9 +11,16 @@
 <body>
 
 
-    <h1 class = "Title">ChromaVision</h1>
 
-    <img src = "./images/ChromaVision-Logo.png" alt="By: Gurtej Grewal | Saad Sheikh | Manuel Lucas">
+    <div class = "Title">
+        <h1 >ChromaVision</h1>
+        <div id = "logo">
+            <img src = "./images/ChromaVision-Logo.png" alt="By: Gurtej Grewal | Saad Sheikh | Manuel Lucas">
+
+        </div>
+    </div>
+
+
 
 
 
@@ -24,16 +31,6 @@
 <br>
 
 <div id = "img_input_prompt"></div>
-
-<script>
-    let imgDiv = document.getElementById('img_input_prompt')
-    if(( window.innerWidth <= 1920 ) && ( window.innerHeight <= 1080 )){
-        imgDiv.innerHTML = ` <video autoplay id="camera_video"></video> <br>`
-    }
-    else{
-        imgDiv.innerHTML = `<p>Take A Picture</p> `
-    }
-</script>
 
 
 <canvas id='canvas'></canvas>

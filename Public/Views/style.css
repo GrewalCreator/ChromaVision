@@ -32,17 +32,17 @@ input[type=button], li{
     color: blue
 }
 
-img{
-    margin-left: 30%;
-    width: 25%;
+#logo{
 
+    position: absolute;
 
 }
 
 .Title{
     margin-left: 30%;
-    font-size: 300%;
+    font-size: 200%;
     font-family: bold, "Segoe UI Black", serif;
+    position: relative;
 }
 
 
