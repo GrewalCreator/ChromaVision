@@ -2,42 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Testing Camera</title>
+    <title>ChromaVision Inc.</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 
 <body>
 
+<header>
+    <div id="nav-placeholder"></div>
 
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navigation.html");
+        });
+    </script>
+</header>
 
-    <div class = "Title">
-        <h1 >ChromaVision</h1>
-        <div id = "logo">
-            <img src = "./images/ChromaVision-Logo.png" alt="By: Gurtej Grewal | Saad Sheikh | Manuel Lucas">
-
-        </div>
-    </div>
-
-
-
-
-
-
-
-<!--  =================== Gurtej's Test's ===================  -->
-
-<br>
-
-<div id = "img_input_prompt"></div>
 
 
 <canvas id='canvas'></canvas>
 
 <video autoplay id="camera_video"></video>
 
-<ol id = "nav">
+
+<ol id = "buttonActions">
     <li> <input type="button" id="activate_camera_button" value="Activate Camera"> </li>
     <li> <input type = "button" id = "screenshot" value = "ScreenShot"> </li>
     <li> <input type = "button" id = "reset" value = "Reset"> </li>
