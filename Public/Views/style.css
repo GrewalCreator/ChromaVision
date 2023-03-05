@@ -1,0 +1,61 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    outline-color: lime;
+    outline-width: 3px;
+}
+#picture_received{
+    display: none;
+}
+
+body{
+    background-image: url("images/Bright-WallPaper.jpg");
+}
+
+input[type=button]{
+    border: lime 4px;
+}
+li{
+    font-family: bold, serif;
+    font-size: 30px;
+    padding: 30px 2%;
+    outline: lime 5px;
+}
+
+input[type=button], li{
+    list-style: none;
+    outline: lime 4px;
+    border: none;
+    background: none;
+    float: left;
+}
+
+input[type=button], li:hover{
+    color: red;
+    opacity: 85%;
+    font-size: 120%;
+}
+
+
+@media only screen and (max-width: 800px){
+    label{
+        display: block;
+        cursor: pointer;
+    }
+
+    #activate_camera_button{
+        display: none;
+    }
+    #screenshot{
+        display: none;
+    }
+    #picture_received{
+        display: flex;
+    }
+
+}
+
+
+
+
