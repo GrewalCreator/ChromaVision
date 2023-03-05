@@ -55,6 +55,7 @@ function screenshot() {
         .drawImage(video,0,0,video.width,video.height)
 }
  async function handlePicture(e){
+    imgDiv.innerHTML += "handler function did its job"
     let canvas = document.getElementById('image-manip');
     let context = canvas.getContext('2d');
     var filereader = new FileReader();
