@@ -33,7 +33,6 @@ async function camera_button() {
                 return -1;
             })
             .then(function () {
-                console.log("Instead Do This")
                 displayVideo();
             })
 
@@ -74,9 +73,9 @@ async function getPixelColor(event) {
     const TOLERANCE = 1;
     if(img.src !== ''){
         let context = canvas.getContext("2d");
-        let X = event.x - Math.floor(TOLERANCE/2);
-        let Y = event.y - rect.top - Math.floor(TOLERANCE/2);
 
+        let X = event.x - Math.floor(TOLERANCE/2) - rect.left;
+        let Y = event.y - rect.top - Math.floor(TOLERANCE/2);
         let RGB_arr = [];
 
         for(let i = 0; i < TOLERANCE; ++i){
@@ -100,7 +99,10 @@ async function getPixelColor(event) {
         let textDiv = document.getElementById("color_info");
         textDiv.innerHTML = '';
         textDiv.innerHTML += `<p id = "retrievedInfo">HexValue: ${hexValue}<\p>`;
+
         textDiv.innerHTML += `<p id = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
+
+        textDiv.innerHTML += `<div id="outputcolor" style="background-color: rgb(${averageRGB}); width: 30px; height: 30px;"></div>`;
 
 
 
