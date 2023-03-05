@@ -20,6 +20,7 @@ let videoStream = undefined;
 const img = document.createElement("img");
 const canvas = document.querySelector("#canvas");
 
+
 function textToSpeech(speech){
     if ('speechSynthesis' in window) {
         // Speech Synthesis supported 🎉
