@@ -20,6 +20,18 @@ let videoStream = undefined;
 const img = document.createElement("img");
 const canvas = document.querySelector("#canvas");
 
+
+function textToSpeech(speech){
+    if ('speechSynthesis' in window) {
+        // Speech Synthesis supported 🎉
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = speech;
+        window.speechSynthesis.speak(msg);
+    }else{
+        // Speech Synthesis Not Supported 😣
+        alert("Sorry, your browser doesn't support text to speech!");
+    }
+}
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
@@ -103,7 +115,8 @@ async function getPixelColor(event) {
         textDiv.innerHTML += `<p id = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
 
         textDiv.innerHTML += `<div id="outputcolor" style="background-color: rgb(${averageRGB}); width: 30px; height: 30px;"></div>`;
-
+        if(event.x>rect.left && event.x<rect.right && event.y > rect.top && event.y < rect.bottom){
+        }
 
 
     }
