@@ -26,7 +26,6 @@ async function camera_button() {
             .catch(function (error) {
                 console.log("Error: " + error);
                 alert("Camera API Is Not Available")
-                document.getElementById("activate_camera_button").remove()
                 return -1;
             })
             .then(function () {
@@ -44,12 +43,12 @@ function screenshot(){
     video.pause();
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
+    var rect = canvas.getBoundingClientRect();
     canvas.getContext("2d").drawImage(video, 0, 0);
-    img.src = canvas.toDataURL("image/png");
-    document.getElementById('activate_camera_button').remove();
-    document.getElementById('camera_video').remove();
-    document.getElementById('screenshot').remove();
-
+    img.src = canvas.toDataURL("image/png")
+    console.log(rect.top, rect.right, rect.bottom, rect.left);
+    canvas.getContext()
+    video.play()
 }
 
 async function displayVideo(){
