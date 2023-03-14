@@ -15,7 +15,7 @@ const MIME_TYPES = {
     'ico': 'image/x-icon',
     'jpeg': 'image/jpeg',
     'jpg': 'image/jpeg',
-    'js': 'application/javascript',
+    'js': 'application/Scripts',
     'json': 'application/json',
     'png': 'image/png',
     'svg': 'image/svg+xml',
@@ -63,7 +63,7 @@ http.createServer(function(request, response) {
 
         if (request.method === "GET") {
             let filePath = undefined;
-            if(urlObj.pathname.includes("/javascript")){
+            if(urlObj.pathname.includes("/Scripts")){
                 filePath = ROOT_DIR + urlObj.pathname;
             }else if(urlObj.pathname.includes('ico' || '.jpg' || '.png')){
                 filePath = ROOT_DIR + '/images' + urlObj.pathname
