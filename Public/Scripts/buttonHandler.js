@@ -35,13 +35,13 @@ function textToSpeech(speech){
 async function camera_button() {
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
         await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
-            .catch(DOMException => {
-                console.log("ERROR: " + DOMException);
-                alert("Browser May Not Support Camera API")
-                return -1;
-            }).catch(function (error) {
+            .catch(function (error) {
                 console.log("Error: " + error);
-                alert("Camera API Is Not Available")
+                if(error === DOMException){
+                    alert("Browser May Not Support Camera API")
+                }else{
+                    alert("Camera API Is Not Available")
+                }
                 return -1;
             })
             .then(function () {
