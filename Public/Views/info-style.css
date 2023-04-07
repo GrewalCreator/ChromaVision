@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title, .about{
+     color: ghostwhite;
+     text-align: center;
+     align-items: center;
+ }
+
+
+
+.title{
+    float: top;
+    font-weight: bold;
+    font-size: xxx-large;
+}
+
+.about{
+    padding: 1px;
+    width: 70%;
+    margin-left: 15%;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.contact{
+    font-family: "Bookman Old Style", monospace;
+    font-size: xxx-large;
+    padding: 1px;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-right: 100px;
+    background-color: rgba(255,255,255,0.5);
+}
+

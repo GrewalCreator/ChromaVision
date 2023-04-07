@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ChromaVision Inc.</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="./nav-bar.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
@@ -28,15 +29,18 @@
 <video autoplay id="camera_video"></video>
 
 
-<ol>
+<ul class = "button-list">
     <li> <input type="button" class = "options" id="activate_camera_button" value="Activate Camera"> </li>
     <li> <input type = "button" class = "options" id = "screenshot" value = "Screenshot"> </li>
     <li> <input type = "button" class = "options" id = "reset" value = "Reset"> </li>
-    <li> <input type="file" class = "options" id = "picture_received" accept="image/*" capture="user"> </li>
-</ol>
+    <li> <input type="file" class = "options" id = "choose-file" accept="image/*" capture="user"> </li>
+</ul>
 
-<div id = 'color_name'></div>
-<div id = "color_info"></div>
+<div id = "colorInfo">
+    <span id = 'color_name'></span>
+    <span id = "color_info"></span>
+</div>
+
 
 
 

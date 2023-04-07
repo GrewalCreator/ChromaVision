@@ -1,2 +1,13 @@
-::1 - - [14/Mar/2023:05:40:29 +0000] "GET /index.html HTTP/1.1" 404 40
-::1 - - [14/Mar/2023:05:40:51 +0000] "GET /index.html HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /index.html HTTP/1.1" 304 -
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /style.css HTTP/1.1" 304 -
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /Scripts/eventHandler.js HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /Scripts/buttonHandler.js HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /Scripts/colorAPI.js HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:02:23 +0000] "GET /images/Bright-WallPaper.jpg HTTP/1.1" 304 -
+----------------------------------------------------------------------------------------------
+::1 - - [17/Mar/2023:20:05:42 +0000] "GET /index.html HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:08:30 +0000] "GET /index.html HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:08:34 +0000] "GET /index.html HTTP/1.1" 404 40
+::1 - - [17/Mar/2023:20:08:35 +0000] "GET /favicon.ico HTTP/1.1" 404 40
+::1 - - [19/Mar/2023:05:12:33 +0000] "GET /index.html HTTP/1.1" 404 40
+::1 - - [19/Mar/2023:05:12:33 +0000] "GET /favicon.ico HTTP/1.1" 404 40

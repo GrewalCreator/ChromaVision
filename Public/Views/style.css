@@ -1,212 +1,62 @@
-
-/*Menu CSS*/
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 *{
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html{scroll-behavior: smooth;}
-
-body{
-    font-family: "Montserrat", sans-serif;
-    overflow-x: hidden;
-    background-image: url("images/Bright-WallPaper.jpg");
-}
-
-.ChromaVision{
-    font-family: bold, "Montserrat", sans-serif;
-    font-size: larger;
-    font-weight: 700;
-}
-
-.title{
-    margin-top: 5%;
-    text-align-last: center;
-    font-size: 3em;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
-.contact{
-    font-family: "Bookman Old Style", monospace;
-    font-size: xxx-large;
-    padding: 1px;
-    margin-left: 100px;
-    margin-top: 50px;
-    margin-right: 100px;
-    background-color: rgba(255,255,255,0.5);
-}
-
-.about{
-    margin-left: 75px;
-}
-
-
-#toggle{display: none;}
-
-.menu{margin: 0 30px 0 0;}
-
-
-.nav{
-    border-bottom: 1px solid rgba(17, 14, 17, 0.667);
-    text-align: right;
-    height: 70px;
-    line-height: 70px;
-}
-
-a{
-    transition: ease 0.3s;
+.button-list{
+    list-style-type: none;
+    overflow: hidden;
+    text-align: center;
     text-decoration: none;
-    padding: 10px 2%;
-}
+    margin-top: 0;
 
-a:hover{
-    color:black;
-    font-size: 120%;
-}
 
-label{
-    margin: 0 40px 0 0;
-    font-size: 26px;
-    line-height: 30px;
-    display: none;
-    width: 26px;
-    position: relative;
-    left: -10px;
-    top: 25%;
-    float: right;
-    transition: all .5s ease-in-out;
-}
-
-button:hover {
-    background: linear-gradient(110deg, rgba(253, 205, 59, 0.7) 60%, rgba(255, 237, 75, 0.7) 60%);
-}
-
-button {
-    margin-left: 20px;
-    padding: 9px 25px;
-    background: linear-gradient(110deg, rgba(253, 205, 59, 1) 60%, rgba(255, 237, 75, 1) 60%);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-    font-family: "Montserrat", sans-serif;
-}
-
-.logo{
-    cursor: pointer;
-    width: 70px;
-    height: auto;
-    float: left;
-    margin-left: 2%;
 }
 
 
-
-/*Project CSS*/
-
-#picture_received{
-    display: none;
-}
-
-input[type=button], li{
-    outline: lime 4px;
-}
-li{
-    font-family: bold, serif;
-    font-size: 30px;
-    padding: 30px 2%;
-    outline: lime 5px;
-}
-
-input[type=button], li, input[type=file]{
-    list-style: none;
-    border: none;
-    background: none;
-    float: left;
+.button-list li input {
+    width: 300px;
+    height: 200px;
+    background-color: rgba(0,0,0,.5);
     color: white;
+    font-weight: bold;
+    font-size: xx-large;
 }
 
+.button-list li {
+    display: inline-block;
+    margin-right: 10px;
+    outline: white auto 4px;
+    text-align: center;
 
-.options{
-    font-size: 25px;
-    font-family: "Arial Black", monospace;
-    padding: 10px;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 5px;
+
 }
 
-.options:hover{
-    background-color: yellow;
-    color: black;
+#screenshot, #choose-file{
+    display: none;
 }
 
-#color_info, #color_name{
-    font-family: bold, sans-serif;
-    float: right;
-    margin-right: 100px;
-    margin-top: 10px;
+#canvas{
+    float: top;
+    margin-left: 20%;
 }
 
-.about{
-    padding: 1px;
-    margin-right: 180px;
-    background-color: rgba(255,255,255,0.5);
+#colorInfo{
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    border-color: black;
+    border-style: solid;
+    border-width: 0;
+    width: 15%;
+
 }
 
-@media only screen and (max-device-width: 800px){
-    label{
-        display: block;
-        cursor: pointer;
-    }
-
-    #activate_camera_button{
-        display: none;
-    }
-    #screenshot{
-        display: none;
-    }
-    #picture_received{
-        display: flex;
-        font-size: large;
-    }
-
-    .menu{
-        text-align: center;
-        width: 100%;
-        display: none;
-    }
-
-    .menu a{
-        display: block;
-        border-bottom: 1px solid #EAEAEB;
-        color: black;
-        padding: 16px;
-        text-decoration: none;
-    }
-
-    .intro{
-        margin-top: 80px;
-    }
-
-    #toggle:checked + .menu{
-        display:block;
-
-        margin: 0;
-        padding: 0;
-        width: 200px;
-        background-color: #f1f1f1;
-        position: fixed;
-        height: 100%;
-        overflow: auto;
-        z-index: 1;
-    }
+#color_name, #color_info{
+    font-weight: bold;
+    color: darkorange;
 }
-
-
-
-

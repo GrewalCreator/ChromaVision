@@ -1,4 +1,3 @@
-
 const http = require('http') //need to http
 const fs = require('fs') //need to read static files
 const url = require('url') //to parse url strings
@@ -100,6 +99,7 @@ http.createServer(function(request, response) {
 
                 returnObj.text = res.name.value.toString();
                 returnObj.RGB = res.RGB;
+                returnObj.HEX = res.HEX;
 
                 response.writeHead(200, {
                     "Content-Type": MIME_TYPES["json"]
