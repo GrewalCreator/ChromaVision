@@ -23,12 +23,10 @@ const canvas = document.querySelector("#canvas");
 
 function textToSpeech(speech){
     if ('speechSynthesis' in window) {
-        // Speech Synthesis supported 🎉
         let msg = new SpeechSynthesisUtterance();
         msg.text = speech;
         window.speechSynthesis.speak(msg);
     }else{
-        // Speech Synthesis Not Supported 😣
         alert("Sorry, your browser doesn't support text to speech!");
     }
 }
@@ -49,6 +47,8 @@ async function camera_button() {
             })
 
         document.getElementById("activate_camera_button").remove();
+        document.getElementById('screenshot').style.display = "inline-block";
+
 
         return 0;
     }
@@ -63,7 +63,6 @@ function screenshot(){
     canvas.getContext("2d").drawImage(video, 0, 0);
     img.src = canvas.toDataURL("image/png")
 
-
     video.play()
 }
 
@@ -73,6 +72,7 @@ async function displayVideo(){
     // Video Stream
     videoStream = await navigator.mediaDevices.getUserMedia(VIDEO_CONSTRAINTS)
     video.srcObject = videoStream
+    video.style.transform = 'scaleX(-1)'
 }
 
 async function reset(){
@@ -104,19 +104,22 @@ async function getPixelColor(event) {
 
 
         let hexValue = ((averageRGB[0].toString(16)) + (averageRGB[1].toString(16)) + (averageRGB[2].toString(16)));
-        await getColorNameFromHex(hexValue);
+        await getColorNameFromHex(hexValue).then(() => {
+            let textDiv = document.getElementById("color_info");
+
+            textDiv.innerHTML = `<p class = "retrievedInfo">HexValue: ${hexValue}<\p>`;
+
+            textDiv.innerHTML += `<p class = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
+
+            textDiv.innerHTML += `<div class="outputcolor" style="background-color: rgb(${averageRGB}); width: 30px; height: 30px;"></div>`;
+        });
+
+        document.getElementById('colorInfo').style.borderWidth = '5px';
 
 
 
-        let textDiv = document.getElementById("color_info");
-        textDiv.innerHTML = '';
-        textDiv.innerHTML += `<p id = "retrievedInfo">HexValue: ${hexValue}<\p>`;
 
-        textDiv.innerHTML += `<p id = "retrievedInfo">RGBValue: ${averageRGB}<\p>`;
 
-        textDiv.innerHTML += `<div id="outputcolor" style="background-color: rgb(${averageRGB}); width: 30px; height: 30px;"></div>`;
-        if(event.x>rect.left && event.x<rect.right && event.y > rect.top && event.y < rect.bottom){
-        }
 
 
     }
